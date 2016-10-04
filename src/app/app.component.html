@@ -1,0 +1,22 @@
+<main>
+  	<input type="text" placeholder="Search" [(ngModel)]="searchQuery" (input)="getValues()" />
+  	<table>
+	  	<tbody>
+	  		<tr>
+	  			<th><input type="text" placeholder="Filter" [(ngModel)]="filterQuery" /></th>
+	  			<th (click)="sortBy('name')">Track Name</th>
+	  			<th (click)="sortBy('artists[0].name')">Artist</th>
+	  			<th (click)="sortBy('popularity')">Popularity</th>
+	  			<th (click)="sortBy('duration_ms')">Duration</th>
+	  		</tr>
+	  		<tr *ngFor="let value of values | orderTracksBy:sortKey:isReverse | filterTracks:filterQuery">
+	  			<td><img src="{{value.album.images[2].url}}"/></td>
+	  			<td>{{value.name}}</td>
+	  			<!-- TODO: add component for multiple artists -->
+	  			<td>{{value.artists[0].name}}</td>
+	  			<td>{{value.popularity}}</td>
+	  			<td>{{getReadableDuration(value.duration_ms)}}</td>
+	  		</tr>
+	  	</tbody>
+  	</table>
+</main>
