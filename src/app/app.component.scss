@@ -1,7 +1,68 @@
+$fa-font-path:"../../node_modules/font-awesome/fonts";
+@import "../../node_modules/font-awesome/scss/font-awesome";
+
 main {
-	padding: 1em;
-	font-family: Arial, Helvetica, sans-serif;
-	text-align: center;
-	margin-top: 50px;
-	display: block;
+    font-family: 'Press Start 2P', cursive;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 0px;
+    box-sizing: border-box;
+    input{
+        font-family: 'Press Start 2P', cursive;
+        outline: none;
+    }
+
+    form.search-form{
+        width: 600px;
+        height: 100px;
+        position: relative;
+        margin: 0 auto;
+
+        input{
+            width: 100%;
+            border-radius: 10px;
+            height: 50px;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        button{
+            height: 50px;
+            width: 50px;
+            position: absolute;
+            right: 0;
+            top: 5px;
+            pointer-events: none;
+            background: none;
+            border: none;
+            outline: none;
+        }
+    }
+
+    table.results-table{
+        border-spacing: 15px;
+        th{
+            font-size: 22px;
+            cursor: pointer;
+            padding-bottom: 20px;
+
+            input{
+                border-radius: 5px;
+                height: 30px;
+            }
+
+            span.fa{
+                width: 100%;
+            }
+        }
+        td{
+            font-size: 14px;
+            text-align: center;
+
+            img{
+                min-height: 100px;
+                max-height: 100px;
+            }
+        }
+    }
 }
