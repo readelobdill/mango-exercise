@@ -44,7 +44,7 @@ main {
         th{
             font-size: 22px;
             cursor: pointer;
-            padding-bottom: 20px;
+            vertical-align: top;
 
             input{
                 border-radius: 5px;
@@ -58,6 +58,13 @@ main {
         td{
             font-size: 14px;
             text-align: center;
+
+            &.preview{
+                cursor: pointer;
+                span{
+                    font-size: 30px;
+                }
+            }
 
             img{
                 min-height: 100px;

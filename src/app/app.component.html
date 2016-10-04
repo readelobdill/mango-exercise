@@ -23,6 +23,7 @@
                     Duration
                     <span class="fa" [ngClass]="{'fa-caret-down': sortKey === 'duration_ms', 'fa-caret-up': sortKey === 'duration_ms' && isReverse}"></span>
                 </th>
+                <th>Preview</th>
             </tr>
             <tr *ngFor="let value of values | orderTracksBy:sortKey:isReverse | filterTracks:filterQuery">
                 <td><img src="{{value.album.images[1].url}}"/></td>
@@ -31,6 +32,7 @@
                 <td>{{value.artists[0].name}}</td>
                 <td>{{value.popularity}}</td>
                 <td>{{getReadableDuration(value.duration_ms)}}</td>
+                <td class="preview"><span (click)=playPausePreview(value.preview_url) class="fa fa-play" [class.fa-pause]="audioPlayer.src === value.preview_url && !audioPlayer.paused && !audioPlayer.ended"></span></td>
             </tr>
         </tbody>
     </table>
