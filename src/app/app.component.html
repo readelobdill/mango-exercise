@@ -1,37 +1,37 @@
 <main>
-	<form class="search-form">
-	  	<input type="text" placeholder="Search Spotify" name="searchQuery" [(ngModel)]="searchQuery" (input)="getValues()" />
-	    <button class="fa fa-search fa-lg"></button>
-	</form>
-  	<table class="results-table">
-	  	<tbody>
-	  		<tr>
-	  			<th><input type="text" placeholder="Filter" [(ngModel)]="filterQuery" /></th>
-	  			<th (click)="sortBy('name')">
-	  				Track Name
-	  				<span class="fa" [ngClass]="{'fa-caret-down': sortKey === 'name', 'fa-caret-up': sortKey === 'name' && isReverse}"></span>
-	  			</th>
-	  			<th (click)="sortBy('artists[0].name')">
-	  				Artist
-	  				<span class="fa" [ngClass]="{'fa-caret-down': sortKey === 'artists[0].name', 'fa-caret-up': sortKey === 'artists[0].name' && isReverse}"></span>
-	  			</th>
-	  			<th (click)="sortBy('popularity')">
-	  				Popularity
-	  				<span class="fa" [ngClass]="{'fa-caret-down': sortKey === 'popularity', 'fa-caret-up': sortKey === 'popularity' && isReverse}"></span>
-	  			</th>
-	  			<th (click)="sortBy('duration_ms')">
-	  				Duration
-	  				<span class="fa" [ngClass]="{'fa-caret-down': sortKey === 'duration_ms', 'fa-caret-up': sortKey === 'duration_ms' && isReverse}"></span>
-	  			</th>
-	  		</tr>
-	  		<tr *ngFor="let value of values | orderTracksBy:sortKey:isReverse | filterTracks:filterQuery">
-	  			<td><img src="{{value.album.images[1].url}}"/></td>
-	  			<td>{{value.name}}</td>
-	  			<!-- TODO: add component for multiple artists -->
-	  			<td>{{value.artists[0].name}}</td>
-	  			<td>{{value.popularity}}</td>
-	  			<td>{{getReadableDuration(value.duration_ms)}}</td>
-	  		</tr>
-	  	</tbody>
-  	</table>
+    <form class="search-form">
+        <input type="text" placeholder="Search Spotify" name="searchQuery" [(ngModel)]="searchQuery" (input)="getValues()" />
+        <button class="fa fa-search fa-lg"></button>
+    </form>
+    <table class="results-table">
+        <tbody>
+            <tr>
+                <th><input type="text" placeholder="Filter" [(ngModel)]="filterQuery" /></th>
+                <th (click)="sortBy('name')">
+                    Track Name
+                    <span class="fa" [ngClass]="{'fa-caret-down': sortKey === 'name', 'fa-caret-up': sortKey === 'name' && isReverse}"></span>
+                </th>
+                <th (click)="sortBy('artists[0].name')">
+                    Artist
+                    <span class="fa" [ngClass]="{'fa-caret-down': sortKey === 'artists[0].name', 'fa-caret-up': sortKey === 'artists[0].name' && isReverse}"></span>
+                </th>
+                <th (click)="sortBy('popularity')">
+                    Popularity
+                    <span class="fa" [ngClass]="{'fa-caret-down': sortKey === 'popularity', 'fa-caret-up': sortKey === 'popularity' && isReverse}"></span>
+                </th>
+                <th (click)="sortBy('duration_ms')">
+                    Duration
+                    <span class="fa" [ngClass]="{'fa-caret-down': sortKey === 'duration_ms', 'fa-caret-up': sortKey === 'duration_ms' && isReverse}"></span>
+                </th>
+            </tr>
+            <tr *ngFor="let value of values | orderTracksBy:sortKey:isReverse | filterTracks:filterQuery">
+                <td><img src="{{value.album.images[1].url}}"/></td>
+                <td>{{value.name}}</td>
+                <!-- TODO: add component for multiple artists -->
+                <td>{{value.artists[0].name}}</td>
+                <td>{{value.popularity}}</td>
+                <td>{{getReadableDuration(value.duration_ms)}}</td>
+            </tr>
+        </tbody>
+    </table>
 </main>
